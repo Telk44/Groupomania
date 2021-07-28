@@ -1,0 +1,57 @@
+
+POST http://localhost:3000/message/new/
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjEsInVzZXJSb2xlIjoxLCJpYXQiOjE1OTIyMjU2MzYsImV4cCI6MTU5MjMxMjAzNn0.46MxjKHUvKdgVbP0Y1Ol-mtGhPMWdvNZMlT7pSZAI_8
+
+{
+    "UserId": 1,
+    "title": "seminaire",
+    "content":"rrezrezrezrzerzerzrzerr.",
+    "url_image":""
+}
+
+###
+POST http://localhost:3000/api/auth/signup
+Content-Type: application/json
+
+{
+    "firstname": "marc",
+    "lastname": "dupond",
+    "title":"développeur",
+    "email": "marc@marc.fr",
+    "password": "Letestdupassword44?"
+}
+
+###
+POST http://localhost:3000/api/auth/signup
+Content-Type: application/json
+
+{
+    "firstname": "Louison",
+    "lastname": "Durant",
+    "title":"développeur",
+    "email": "louison@louison.fr",
+    "password": "Letestdupassword44?"
+}
+
+
+###
+POST http://localhost:3000/api/auth/login
+Content-Type: application/json
+
+{
+     "email": "jojo@jojo.fr",
+    "password": "Azerty44?"
+}
+
+###
+DELETE http://localhost:3000/api/auth/:i2
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjIsImlhdCI6MTYyNzM3NTg4OCwiZXhwIjoxNjI3NDYyMjg4fQ.WHw_XMn26emaLA_EcvZZDqQGrMhQ4KiVb8sLCebJcH0
+
+
+###
+GET http://localhost:3000/api/auth/:3
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjEsInVzZXJSb2xlIjoxLCJpYXQiOjE1OTIyMjU2MzYsImV4cCI6MTU5MjMxMjAzNn0.46MxjKHUvKdgVbP0Y1Ol-mtGhPMWdvNZMlT7pSZAI_8
+
