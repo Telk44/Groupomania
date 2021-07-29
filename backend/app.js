@@ -1,13 +1,13 @@
 const express = require('express');
-const bodyParser = require('body-parser');
+/* const bodyParser = require('body-parser'); */
 const path = require('path');
-const helmet = require('helmet');
+const helmet = require('helmet');//pour protéger l'application des vulnérabilités du web en configurant correctement les entêtes http
 const db = require('./models');
 
-// Importation des routeurs //
-const userRoutes = require("./routes/user"); // Importation de la route user //
-const messageRoutes = require("./routes/message"); // Importation de la route message //
-const answerRoutes = require("./routes/answer"); // Importation de la route answer //
+
+const userRoutes = require("./routes/user"); 
+const messageRoutes = require("./routes/message"); 
+const answerRoutes = require("./routes/answer"); 
 
 db.sequelize
     .authenticate()
@@ -21,25 +21,26 @@ db.sequelize
         console.log(error);
     });
 
-
-
 const app = express();
 
 app.use((req, res, next) => {
-    res.setHeader('Access-Control-Allow-Origin', '*'); // On accéde à l'API depuis diverses origines //
+    res.setHeader('Access-Control-Allow-Origin', '*'); 
     res.setHeader('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content, Accept, Content-Type, Authorization');
     res.setHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE, PATCH, OPTIONS'); // Liste requêtes autorisées //
     next();
 });
 
-app.use(bodyParser.json()); // App requiert BodyParser //
+/* app.use(bodyParser.json());  */
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
 app.use(helmet());
-app.use('/images', express.static(path.join(__dirname, 'images'))); // Pour toute requête envoyée à /images/, on sert ce dossier statique image //
 
-// Enregistrement des routeurs //
+//rendre les images accessibles publiquement pour toutes les requêtes vers la route /images
+app.use('/images', express.static(path.join(__dirname, 'images'))); 
+
 app.use('/api/auth', userRoutes);
 app.use('/api/messages', messageRoutes); 
 app.use('/api/answers', answerRoutes); 
 
 
-module.exports = app; // On exporte app //
+module.exports = app; 
