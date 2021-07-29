@@ -8,13 +8,13 @@ const regexEmail = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9._-]+.[a-zA-Z.]{2,15}/;
 const regexPassword = /^(?=^.{8,}$)((?=.*\d)|(?=.*\W+))(?![.\n])(?=.*[A-Z])(?=.*[a-z]).*$/;
 
 
-// Fonction signup, sauvegarde d'un nouvel utilisateur //
+// Fonction signup, sauvegarde d'un nouvel utilisateur
 exports.signup = (req, res, next) => {    
     if (req.body.email == null || req.body.password == null || req.body.lastname == null || req.body.firstname == null) {
         return res.status(400).json({ 'error': 'Données incomplètes' });
     } 
     if (!regexEmail.test(req.body.email)) {
-        return res.status(400).json({ 'error': 'Email non validé' });
+        return res.status(400).json({ 'error': 'Email non valide' });
     }
     if (!regexPassword.test(req.body.password)) {
         return res.status(400).json({ 'error': 'Mot de passe non valide' });
@@ -22,7 +22,7 @@ exports.signup = (req, res, next) => {
         User.findOne({
         attributes: ['email'],
         where: { email: req.body.email }
-    }) //Vérification si un utilisateur corresponde déjà à l'email de la DB
+    }) 
         .then((user) => {
             if (!user) {
     bcrypt.hash(req.body.password, 10)  
@@ -47,7 +47,7 @@ exports.signup = (req, res, next) => {
         .catch(error => res.status(500).json({ 'error': 'Utilisateur déjà existant' }));
 };
 
-// Fonction login //
+// Fonction login 
 exports.login = (req, res, next) => {
     User.findOne({ where : {email: req.body.email }}) 
         .then(user => {

@@ -15,7 +15,7 @@ module.exports = (sequelize, DataTypes) => {
     User.hasMany(models.Message,{
       foreignKey: 'userId',
       as: 'messages', //Sequelize defaults to using the pluralized model name//
-      //Un utilisateur peut envoyer plusieurs messages//
+      
     }); 
   };
   
