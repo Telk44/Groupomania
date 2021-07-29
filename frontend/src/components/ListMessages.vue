@@ -10,7 +10,6 @@
              
           </div>
           <div class="blocmessage">
-              <!-- <h4> {{ message.title }} </h4> -->
               <p> {{ message.content }} </p>
             </div>  
           <a class="blocactions">
@@ -92,7 +91,7 @@ export default {
 }
 .textdate{
   font-size: 10px;
-  padding-left: 22px;
+
 }
 .bloclist {
   width: 70%;
@@ -103,31 +102,15 @@ export default {
   border-radius: 5px;
   
 }
-h4 {
-  font-size: 1;
-}
-/* .blocauthor i {
-  color: #0c2444;
-  font-size: 1.5em;
-  padding: 0;
-  
-} */
-
 .blocactions {
   width: 100%;
   font-size: 1.5em;
   margin: 0 auto;
- /*  flex-direction: row; */
-  
 }
-/* .blocactions i{
-  margin-bottom: 10px;
-  align-items: right
-  ;
-} */
 
 .blocauthor p {
   font-size: 1em;
+  
 }
 .blocmessage {
   width: 100%;
@@ -144,23 +127,4 @@ h4 {
     font-size: 0.6em;
 }
 
-/* 
-@media screen and (max-width: 450px) {
-	.bloclist {
-    width: auto; 
-    box-shadow: inset 0px 0px 0px 8px white;
-    border: 1px solid black;
-    font-size: 0.7em;
-  }
-  .form-group {
-    display: flex;
-    flex-direction: column;
-    
-  }
-  label, input, textarea {
-    width: 75%;
-    text-align: center;
-  }
-
-} */
 </style>

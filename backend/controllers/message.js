@@ -18,7 +18,7 @@ exports.createMessage = (req, res, next) => {
 };
 
 
-exports.deleteMessage = (req, res, next) => {
+/* exports.deleteMessage = (req, res, next) => {
   Message.findOne({ where: { id: req.params.id }}) 
       .then((message) => {
           if(message.url_image === null){
@@ -35,9 +35,9 @@ exports.deleteMessage = (req, res, next) => {
             }
           })
           .catch(error => res.status(500).json({error}));
-}
+} */
 //sans image
-/* exports.deleteMessage = (req, res, next) => {
+exports.deleteMessage = (req, res, next) => {
   Message.findOne({ where: { id: req.params.id }})
       .then((message) => {
           Message.destroy({ where: { id: req.params.id } }) 
@@ -45,7 +45,7 @@ exports.deleteMessage = (req, res, next) => {
               .catch(error => res.status(400).json({ error }));
       })
       .catch(error => res.status(500).json({ error }));
-}; */
+};
 
 // Obtention d'un message 
 exports.getOneMessage = (req, res, next) => {

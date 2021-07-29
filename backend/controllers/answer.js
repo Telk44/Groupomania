@@ -1,4 +1,5 @@
-const { Answer } = require('../models/index');
+const { Answer, User, Message } = require('../models/index');
+
 
 // Création d'une réponse 
 exports.createAnswer = (req, res, next) => {
@@ -15,6 +16,7 @@ exports.createAnswer = (req, res, next) => {
 // Obtention des réponses 
 exports.getAllAnswers = (req, res, next) => {
     Answer.findAll({
+        include:User,
         where: { messageId: req.params.id },
     }
     )
@@ -30,13 +32,15 @@ exports.getOneAnswer = (req, res, next) => {
 };
 
 // Suppression d'une réponse 
+
+
 exports.deleteAnswer = (req, res, next) => {
-    Answer.findOne({ where: { id: req.params.id } }) 
-        .then((answer) => {
-            Answer.destroy({ where: { id: req.params.id } }) 
-                .then(() => res.status(200).json({ message: 'Réponse supprimée' }))
-                .catch(error => res.status(400).json({ error }));
-        })
-        .catch(error => res.status(500).json({ error }));
+  Answer.findOne({ where: { id: req.params.id } }) 
+      .then((answer) => {
+          Answer.destroy({ where: { id: req.params.id } }) 
+              .then(() => res.status(200).json({ message: 'Réponse supprimée' }))
+              .catch(error => res.status(400).json({ error }));
+      })
+      .catch(error => res.status(500).json({ error }));
 };
 
