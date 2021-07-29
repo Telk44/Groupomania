@@ -1,6 +1,6 @@
 const { Answer } = require('../models/index');
 
-// Création d'une réponse //
+// Création d'une réponse 
 exports.createAnswer = (req, res, next) => {
     const answer = {
         userId: req.decodedToken.userId,
@@ -12,7 +12,7 @@ exports.createAnswer = (req, res, next) => {
         .catch(error => res.status(400).json({ error }));
 };
 
-// Obtention des réponses //
+// Obtention des réponses 
 exports.getAllAnswers = (req, res, next) => {
     Answer.findAll({
         where: { messageId: req.params.id },
@@ -22,14 +22,14 @@ exports.getAllAnswers = (req, res, next) => {
         .catch(error => res.status(400).json({ error }));
 };
 
-// Obtention d'une réponse //
+// Obtention d'une réponse 
 exports.getOneAnswer = (req, res, next) => {
     Answer.findOne({ where: { id: req.params.id } })
         .then((answer) => res.status(200).json(message))
         .catch(error => res.status(404).json({ error }));
 };
 
-// Suppression d'une réponse //
+// Suppression d'une réponse 
 exports.deleteAnswer = (req, res, next) => {
     Answer.findOne({ where: { id: req.params.id } }) 
         .then((answer) => {

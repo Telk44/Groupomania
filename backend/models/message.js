@@ -18,7 +18,7 @@ Message.associate = function (models) {
   });
   Message.hasMany(models.Answer, {
     foreignKey: 'messageId',
-    as: 'answers', //Sequelize defaults to using the pluralized model name//
+    as: 'answers', 
     
   }); 
 }

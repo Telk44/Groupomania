@@ -68,7 +68,7 @@ exports.getOneMessage = (req, res, next) => {
         .catch(error => res.status(404).json({ error }));
 };
 
-// Obtention des messages //
+// Obtention des messages 
 exports.getAllMessages = (req, res, next) => {     
     Message.findAll({
         include: ["user", "answers"],
@@ -79,7 +79,7 @@ exports.getAllMessages = (req, res, next) => {
         .catch(error => res.status(400).json({ error }));
 };
 
-//Modifier un message//A vérifier 
+//Modifier un message/A vérifier 
 exports.updateOnePost = (req, res, next) => {
     Message.update({
         title: req.body.title,

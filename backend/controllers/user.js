@@ -1,31 +1,32 @@
-const bcrypt = require('bcrypt'); 
-const jwt = require('jsonwebtoken'); 
-const { User } = require('../models/index'); 
+const bcrypt = require('bcrypt'); // Hashage de passwords //
+const jwt = require('jsonwebtoken'); // Sécurisation de la connection grâce à des tokens uniques //
+const { User } = require('../models/index'); // Importation du modèle User //
 require('dotenv').config();
+
 
 // Regex
 const regexEmail = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9._-]+.[a-zA-Z.]{2,15}/;
 const regexPassword = /^(?=^.{8,}$)((?=.*\d)|(?=.*\W+))(?![.\n])(?=.*[A-Z])(?=.*[a-z]).*$/;
 
-
-// Fonction signup, sauvegarde d'un nouvel utilisateur
+// Exportation des fonctions //
+// Fonction signup, sauvegarde d'un nouvel utilisateur //
 exports.signup = (req, res, next) => {    
     if (req.body.email == null || req.body.password == null || req.body.lastname == null || req.body.firstname == null) {
         return res.status(400).json({ 'error': 'Données incomplètes' });
     } 
     if (!regexEmail.test(req.body.email)) {
-        return res.status(400).json({ 'error': 'Email non valide' });
+        return res.status(400).json({ 'error': 'Email non validé' });
     }
     if (!regexPassword.test(req.body.password)) {
-        return res.status(400).json({ 'error': 'Mot de passe non valide' });
+        return res.status(400).json({ 'error': 'Mot de passe non validé' });
     }    
         User.findOne({
         attributes: ['email'],
         where: { email: req.body.email }
-    }) 
+    }) //Vérification si un utilisateur corresponde déjà à l'email de la DB//
         .then((user) => {
             if (!user) {
-    bcrypt.hash(req.body.password, 10)  
+    bcrypt.hash(req.body.password, 10)  //Fonction pour hasher un mot de passe fonction async//
         .then(hash => { 
             console.log(hash)           
              const signUser = User.create ({
@@ -47,7 +48,7 @@ exports.signup = (req, res, next) => {
         .catch(error => res.status(500).json({ 'error': 'Utilisateur déjà existant' }));
 };
 
-// Fonction login 
+// Fonction login //
 exports.login = (req, res, next) => {
     User.findOne({ where : {email: req.body.email }}) 
         .then(user => {
@@ -87,14 +88,14 @@ exports.deleteAccount = (req, res, next) => {
             .catch (error => res.status(500).json({ error }));
             };
         
-// Obtention d'un compte 
+// Obtention d'un compte
 exports.getOneAccount = (req, res, next) => {
     User.findOne({ where: { id: req.params.id }})
         .then((user) => res.status(200).json(user))
         .catch(error => res.status(404).json({ error }));
 };
 
-// Modification d'un compte 
+// Modification d'un compte
 exports.modifyAccount = (req, res, next) => { 
     User.findOne({ where: { id: req.params.id }})
         .then((user) => {
