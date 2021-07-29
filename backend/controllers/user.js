@@ -1,13 +1,13 @@
-const bcrypt = require('bcrypt'); // Hashage de passwords //
-const jwt = require('jsonwebtoken'); // Sécurisation de la connection grâce à des tokens uniques //
-
-const { User } = require('../models/index'); // Importation du modèle User //
+const bcrypt = require('bcrypt'); 
+const jwt = require('jsonwebtoken'); 
+const { User } = require('../models/index'); 
+require('dotenv').config();
 
 // Regex
 const regexEmail = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9._-]+.[a-zA-Z.]{2,15}/;
 const regexPassword = /^(?=^.{8,}$)((?=.*\d)|(?=.*\W+))(?![.\n])(?=.*[A-Z])(?=.*[a-z]).*$/;
 
-// Exportation des fonctions //
+
 // Fonction signup, sauvegarde d'un nouvel utilisateur //
 exports.signup = (req, res, next) => {    
     if (req.body.email == null || req.body.password == null || req.body.lastname == null || req.body.firstname == null) {
@@ -17,15 +17,15 @@ exports.signup = (req, res, next) => {
         return res.status(400).json({ 'error': 'Email non validé' });
     }
     if (!regexPassword.test(req.body.password)) {
-        return res.status(400).json({ 'error': 'Mot de passe non validé' });
+        return res.status(400).json({ 'error': 'Mot de passe non valide' });
     }    
         User.findOne({
         attributes: ['email'],
         where: { email: req.body.email }
-    }) //Vérification si un utilisateur corresponde déjà à l'email de la DB//
+    }) //Vérification si un utilisateur corresponde déjà à l'email de la DB
         .then((user) => {
             if (!user) {
-    bcrypt.hash(req.body.password, 10)  //Fonction pour hasher un mot de passe fonction async//
+    bcrypt.hash(req.body.password, 10)  
         .then(hash => { 
             console.log(hash)           
              const signUser = User.create ({
@@ -59,14 +59,14 @@ exports.login = (req, res, next) => {
                     if (!valid) {
                         return res.status(401).json({ error: 'Mot de passe incorrect !' });
                     }
-                    res.status(200).json({ // Si comparaison ok, on renvoit un objet JSON contenant //
-                        userId: user.id, // L'userId + //
-                        token: jwt.sign( // Un token - Fonction sign de JsonWebToken//
-                            { userId: user.id }, // 1er argument : données à encoder //
-                            'RANDOM_TOKEN_SECRET', // 2ème : clé secréte encodage //
-                            { expiresIn: '24h' }// 3 :argument de configuration //
+                    res.status(200).json({ 
+                        userId: user.id, 
+                        token: jwt.sign( 
+                            { userId: user.id }, 
+                            'process.env.DB_TOKEN', 
+                            { expiresIn: '24h' }
                         ),
-                        isAdmin: user.isAdmin // Rajout Admin //
+                        isAdmin: user.isAdmin 
                     });
                 })
                 .catch(error => res.status(500).json({ error }));
@@ -76,25 +76,25 @@ exports.login = (req, res, next) => {
 };
 
     
-// Suppression d'un compte //
+// Suppression d'un compte 
 exports.deleteAccount = (req, res, next) => {
     User.findOne({ where: { id: req.params.id }})  
       .then((user) => {
-          User.destroy({ where: { id: req.params.id }}) // Méthode //
+          User.destroy({ where: { id: req.params.id }}) 
                     .then(() => res.status(200).json({ message: 'Compte supprimé' }))
                     .catch(error => res.status(400).json({ error }));
                 })
             .catch (error => res.status(500).json({ error }));
             };
         
-// Obtention d'un compte //
+// Obtention d'un compte 
 exports.getOneAccount = (req, res, next) => {
     User.findOne({ where: { id: req.params.id }})
         .then((user) => res.status(200).json(user))
         .catch(error => res.status(404).json({ error }));
 };
 
-// Modification d'un compte //
+// Modification d'un compte 
 exports.modifyAccount = (req, res, next) => { 
     User.findOne({ where: { id: req.params.id }})
         .then((user) => {
