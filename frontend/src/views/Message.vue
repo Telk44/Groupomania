@@ -9,8 +9,8 @@
                 <!-- <input type="text" id="title" name="title" placeholder="Titre" class="form-control" required v-model="inputMessage.title"/> -->
                 <input type="text" id="content" name="content" rows="10" class="form-control" required v-model="inputMessage.content" placeholder="Quoi de neuf ?"/>
             
-              <label for="image" class="new-post_form-label">Image</label>
-                <input type="file"  placeholder="upload image"/>
+             <!--  <label for="image" class="new-post_form-label">Image</label>
+                <input type="file"  placeholder="upload image"/> -->
             </form>              
              <button v-on:click="sendMessage" >Publier</button> 
           </div> 

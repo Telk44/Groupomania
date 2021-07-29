@@ -4,17 +4,15 @@ const path = require('path');
 const helmet = require('helmet');
 const db = require('./models');
 
-// Importation des routeurs //
-const userRoutes = require("./routes/user"); // Importation de la route user //
-const messageRoutes = require("./routes/message"); // Importation de la route message //
-const answerRoutes = require("./routes/answer"); // Importation de la route answer //
-
+const userRoutes = require("./routes/user"); 
+const messageRoutes = require("./routes/message"); 
+const answerRoutes = require("./routes/answer"); 
 db.sequelize
     .authenticate()
     .then(() => {
         console.log('connexion à la base de données');
         db.sequelize.sync({
-           /*  force:true */
+            /* force:true */
         })
     })
     .catch(error => {
@@ -26,20 +24,19 @@ db.sequelize
 const app = express();
 
 app.use((req, res, next) => {
-    res.setHeader('Access-Control-Allow-Origin', '*'); // On accéde à l'API depuis diverses origines //
+    res.setHeader('Access-Control-Allow-Origin', '*'); 
     res.setHeader('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content, Accept, Content-Type, Authorization');
     res.setHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE, PATCH, OPTIONS'); // Liste requêtes autorisées //
     next();
 });
 
-app.use(bodyParser.json()); // App requiert BodyParser //
+app.use(bodyParser.json()); 
 app.use(helmet());
-app.use('/images', express.static(path.join(__dirname, 'images'))); // Pour toute requête envoyée à /images/, on sert ce dossier statique image //
+app.use('/images', express.static(path.join(__dirname, 'images'))); 
 
-// Enregistrement des routeurs //
 app.use('/api/auth', userRoutes);
 app.use('/api/messages', messageRoutes); 
 app.use('/api/answers', answerRoutes); 
 
 
-module.exports = app; // On exporte app //
+module.exports = app; 

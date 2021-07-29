@@ -100,22 +100,14 @@ export default {
     border:none;
     align-items: flex-start;
 } 
-
-/* .blocanswer i {
-  color: white;
-  font-size: 1.75em;
-  padding-right: 25px;
- 
-} */
 .blocanswer textarea:focus {
   border-color: white;
   box-shadow: 0px 0px 6px grey;
 }
-
 .btnpost{
-    width:10%;
-    border-radius: 10px;
-    padding:10px;
+    width:40px;
+    border-radius: 8px;
+    padding:8px;
     background-color: rgb(30, 41, 70);
     color:white;
     border:none

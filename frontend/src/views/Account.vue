@@ -4,7 +4,7 @@
 
             <div class="blocsignup">
                 <p>Gestion du compte de {{ userAccount.firstname }} {{ userAccount.lastname }}</p>
-                <p>Vous êtes inscrit depuis le <span>{{ userAccount.createdAt | moment("DD.MM.YY") }}</span> en tant que {{ userAccount.jobtitle }}.</p>
+                <p>Vous êtes inscrit depuis le <span>{{ userAccount.createdAt | moment("DD.MM.YY") }}</span> <!-- en tant que {{ userAccount.jobtitle }} -->.</p>
                 <button @click="deleteAccount" class="accountbutton">Supprimez votre compte</button>  
             </div>  
      </section>
@@ -24,12 +24,12 @@ export default {
                 firstname: "",
                 lastname: "",
                 createdAt: "",
-                jobtitle: ""
+                /* jobtitle: "" */
             },
             inputAccount: {
                 lastname: "",
                 firstname: "",
-                jobtitle: ""
+                /* jobtitle: "" */
             }
         }
     },
@@ -50,10 +50,8 @@ export default {
                 this.userAccount.createdAt = data.createdAt;
                 this.userAccount.jobtitle = data.jobtitle;
             })
-
             .catch(error => console.log(error))
     },
-
     methods: {
         getOneAccount() {
             let url = `http://localhost:3000/api/auth/${ this.userAccount.userId }`;
@@ -69,7 +67,7 @@ export default {
                     console.log(data)
                     this.userAccount.firstname = data.firstname;
                     this.userAccount.lastname = data.lastname;
-                    this.userAccount.jobtitle = data.jobtitle;
+                    /* this.userAccount.jobtitle = data.jobtitle; */
                 })
                 .catch(error => console.log(error))
         },
@@ -86,7 +84,7 @@ export default {
                 .then((response) => {
                     console.log(response);
                     localStorage.clear();
-                    alert("Suppression du compte confirmée ! 😢");
+                    alert("Suppression du compte confirmée ! ");
                 })
                 .then(this.$router.push("/signup"))
                 .catch(error => console.log(error))

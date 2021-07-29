@@ -151,8 +151,7 @@ input:focus, textarea:focus {
   
 	/* opacity: 0.95; */
 	padding-top: 20px;
-	/* box-shadow:  0px 0px 0px 6px rgb(2, 2, 2); */
- 
+
   border-radius: 10px;
   text-align: center;
   margin-top: 50px;
@@ -184,18 +183,17 @@ input:focus, textarea:focus {
 @media screen and (max-width: 450px) {
 	.blocsignup {
   width: auto; 
-  box-shadow: inset 0px 0px 0px 8px white;
- align-content: center;
+  align-content: center;
   font-size: 0.7em;
 }
- .form-group {
+/*  .form-group {
   display: flex;
   flex-direction: column;
    
- }
-label, input, textarea {
+ } */
+/* label, input, textarea {
   width: 75%;
   text-align: center;
-  }
+  } */
 }
 </style>

@@ -22,30 +22,5 @@ body, html {
   height: 100%;
   font-family: 'Montserrat', sans-serif;
 }
-header {
-  width: 100%;
-  height: 100px;
-  display: flex;
-  justify-content: center;
-}
-/* header a{
-  text-decoration: none;
-  color: white;
-  margin: auto;
-} */
-/* header img {
-  width: 22%;
 
-}
-
-@media screen and (max-width: 768px) {
-  header img {
-    width: 35%;
-  }
-}
-@media screen and (max-width: 450px) {
-  header img {
-    width: 50%;
-  }
-} */
 </style>
