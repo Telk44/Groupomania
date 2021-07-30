@@ -1,24 +1,12 @@
 
-POST http://localhost:3000/message/new/
-Content-Type: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjEsInVzZXJSb2xlIjoxLCJpYXQiOjE1OTIyMjU2MzYsImV4cCI6MTU5MjMxMjAzNn0.46MxjKHUvKdgVbP0Y1Ol-mtGhPMWdvNZMlT7pSZAI_8
-
-{
-    "UserId": 1,
-    "title": "seminaire",
-    "content":"rrezrezrezrzerzerzrzerr.",
-    "url_image":""
-}
-
-###
 POST http://localhost:3000/api/auth/signup
 Content-Type: application/json
 
 {
-    "firstname": "marc",
-    "lastname": "dupond",
+    "firstname": "Vale",
+    "lastname": "copex",
     "title":"développeur",
-    "email": "marc@marc.fr",
+    "email": "vale@vale.fr",
     "password": "Letestdupassword44?"
 }
 
@@ -27,31 +15,82 @@ POST http://localhost:3000/api/auth/signup
 Content-Type: application/json
 
 {
-    "firstname": "Louison",
-    "lastname": "Durant",
+    "firstname": "Jean",
+    "lastname": "Dujardin",
     "title":"développeur",
-    "email": "louison@louison.fr",
+    "email": "dujardin@dujardin.fr",
     "password": "Letestdupassword44?"
 }
-
 
 ###
 POST http://localhost:3000/api/auth/login
 Content-Type: application/json
 
 {
-     "email": "jojo@jojo.fr",
-    "password": "Azerty44?"
+     "email": "vale@vale.fr",
+    "password": "Letestdupassword44?"
 }
 
 ###
-DELETE http://localhost:3000/api/auth/:i2
+DELETE http://localhost:3000/api/auth/:2
 Content-Type: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjIsImlhdCI6MTYyNzM3NTg4OCwiZXhwIjoxNjI3NDYyMjg4fQ.WHw_XMn26emaLA_EcvZZDqQGrMhQ4KiVb8sLCebJcH0
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjgsImlhdCI6MTYyNzYyODU0OSwiZXhwIjoxNjI3NzE0OTQ5fQ.D0ivLFEaV7EWsbKaqj0sNoJIHr2u756bCZtPLdfr0vM
+
+###
+GET http://localhost:3000/api/auth/:1
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjgsImlhdCI6MTYyNzYyODU0OSwiZXhwIjoxNjI3NzE0OTQ5fQ.D0ivLFEaV7EWsbKaqj0sNoJIHr2u756bCZtPLdfr0vM
+
 
 
 ###
-GET http://localhost:3000/api/auth/:3
+POST http://localhost:3000/api/messages/new
 Content-Type: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjEsInVzZXJSb2xlIjoxLCJpYXQiOjE1OTIyMjU2MzYsImV4cCI6MTU5MjMxMjAzNn0.46MxjKHUvKdgVbP0Y1Ol-mtGhPMWdvNZMlT7pSZAI_8
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjEwLCJpYXQiOjE2Mjc2MzQ3ODksImV4cCI6MTYyNzcyMTE4OX0.07iXD93BvVK5GtytIOXL7fNCIPXPeSxCUdvMT7UzDgw
 
+{
+    "userId": 10,
+    "title": "",
+    "content":"mise à jour token",
+    "url_image":""
+}
+
+###
+POST http://localhost:3000/api/answers/new
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjEwLCJpYXQiOjE2Mjc2MzQ3ODksImV4cCI6MTYyNzcyMTE4OX0.07iXD93BvVK5GtytIOXL7fNCIPXPeSxCUdvMT7UzDgw
+
+{
+    "userId": 10,
+    "title": "",
+    "content":"suite du test",
+    "url_image":""
+}
+
+###
+GET http://localhost:3000/api/answers/:10/display
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjEwLCJpYXQiOjE2Mjc2MzQ3ODksImV4cCI6MTYyNzcyMTE4OX0.07iXD93BvVK5GtytIOXL7fNCIPXPeSxCUdvMT7UzDgw
+
+
+###
+GET http://localhost:3000/api/answers/:5
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjEwLCJpYXQiOjE2Mjc2MzQ3ODksImV4cCI6MTYyNzcyMTE4OX0.07iXD93BvVK5GtytIOXL7fNCIPXPeSxCUdvMT7UzDgw
+
+
+###
+GET http://localhost:3000/api/auth/accounts
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjEwLCJpYXQiOjE2Mjc2MzQ3ODksImV4cCI6MTYyNzcyMTE4OX0.07iXD93BvVK5GtytIOXL7fNCIPXPeSxCUdvMT7UzDgw
+
+###
+GET http://localhost:3000/api/messages
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjgsImlhdCI6MTYyNzYyODU0OSwiZXhwIjoxNjI3NzE0OTQ5fQ.D0ivLFEaV7EWsbKaqj0sNoJIHr2u756bCZtPLdfr0vM
+
+
+###
+GET http://localhost:3000/api/answers/:2/display
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjgsImlhdCI6MTYyNzYzNDI1NCwiZXhwIjoxNjI3NzIwNjU0fQ.nCi86gY30qY1bpqN_xQ2LPetf1DJb-h9kj6La4SGkdY

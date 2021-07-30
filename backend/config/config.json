@@ -8,15 +8,15 @@
   },
   "test": {
     "username": "root",
-    "password": "Lougascoplan44",
-    "database": "testgroupomania",
+    "password": "root",
+    "database": "groupomania",
     "host": "127.0.0.1",
     "dialect": "mysql"
   },
   "production": {
     "username": "root",
-    "password": "Lougascoplan44",
-    "database": "testgroupomania",
+    "password": "root",
+    "database": "groupomania",
     "host": "127.0.0.1",
     "dialect": "mysql"
   }

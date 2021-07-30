@@ -1,22 +1,23 @@
 <template>
             <!-- Liste des commentaires  -->
     <div class="bloc"> 
+        
         <div v-for="answer in answers" :key="answer.id" class="blocanswers" >                        
-           <span class="textdate"> <i class="fas fa-user-circle">  </i> 
+            <span class="textdate"> <i class="fas fa-user-circle">  </i> 
            posté par {{ answer.User.firstname }} {{ answer.User.lastname }}
            le  {{ answer.createdAt | moment( " DD.MM.YY à HH:mm") }}</span>
-           <br>{{ answer.content }}
+           <br> {{ answer.content }}
+           <br>
            <a class="blocactions">
                 <i class="fas fa-trash-alt" v-if="answer.userId == userId || isAdmin == true" 
                 @click="deleteAnswer(answer.id)" title="supprimer"> </i>
-                
           </a>
         </div>
 
         <!-- Poster un commentaire  -->    
         <div class="addAnswer">
            <div> <textarea type="text"  name="content" class="form-control" v-model="content" placeholder="Ecrivez un commentaire" required></textarea></div>
-            <div><button class ="btnpost" v-on:click="createAnswer()">Post</button> </div>        
+           <button class ="btnpost" v-on:click="createAnswer()">Post</button>        
         </div>
     </div>
 </template>
@@ -111,26 +112,26 @@ export default {
 </script>
 
 <style lang="css">
+
+
+.blocactions {
+    
+}
 .deleteAnswer{
     text-align: end;
 }
 .blocanswers {
-  width:80%;
+  max-width: 80%;
   margin:10px 0px;
   padding:10px;
   border-radius: 8px; 
   background-color: #f4f0f0;
-  overflow: hidden;
-  font-size: 16px;
+  word-wrap:break-word;
+  font-size: 14px;
  
 }
-/* #addpost{
-    display: flex;
-    flex-direction: column;
-    border:none;
-    align-items: flex-start;
-}  */
-.blocanswer textarea:focus {
+
+.blocaddanswer textarea:focus {
   border-color: white;
   box-shadow: 0px 0px 6px grey;
 }

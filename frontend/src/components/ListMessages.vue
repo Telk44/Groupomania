@@ -11,14 +11,12 @@
           </div>
           <div class="blocmessage">
               <p> {{ message.content }} </p>
-            </div>  
+          </div>  
           <a class="blocactions">
-                <i class="fas fa-trash-alt" v-if="message.userId == userId || isAdmin == true" 
-                @click="deleteMessage(message.id)" title="supprimer"> </i>
-                
+            <i class="fas fa-trash-alt" v-if="message.userId == userId || isAdmin == true" @click="deleteMessage(message.id)" title="supprimer"> </i>
           </a>
-    <Answers :messageId="message.id" :messageUserId="message.userId" />
-    </div>
+        <Answers :messageId="message.id" :messageUserId="message.userId" />
+      </div>
   </div> 
       
 </template>
