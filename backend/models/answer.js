@@ -12,7 +12,7 @@ module.exports = (sequelize, DataTypes) => {
     //Associations can be define here//
     Answer.belongsTo(models.User, {
       foreignKey: 'userId',
-     
+      onDelete: 'CASCADE', 
     });
     Answer.belongsTo(models.Message, {
       foreignKey: 'messageId',
