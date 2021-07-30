@@ -16,6 +16,8 @@ Ouvrir le dossier Backend dans le terminal de votre éditeur puis exécuter la c
 
     npm install
 
+Céer un fichier.env dans le dossier backend et y renseigner le token de votre choix via DB_TOKEN= 
+
 Puis, se connecter au serveur MySql de votre choix.
 Créer une base de données. Renseigner son nom et son mot de passe dans le fichier config.json. Puis exécuter la commande:
 
