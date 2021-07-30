@@ -45,7 +45,6 @@ Pour s'inscrire sur le social network de Groupomania, il vous faut renseigner :
 - Une adresse mail valide
 - Un mot de passe (Minimum 8 caractères dont 1 Majuscule, 1 minuscule et un chiffre)
 
-Votre compte peut être supprimé par vous-même ainsi que par l'administrateur.
 
 Pour créer un administrateur, il faudra passer la valeur isAdmin à 1 dans la base de données pour l'utilisateur que l'on souhaite affecter à cette tache.
 
