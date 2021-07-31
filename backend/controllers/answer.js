@@ -1,6 +1,5 @@
 const { Answer, User, Message } = require('../models/index');
 
-
 // Création d'une réponse 
 exports.createAnswer = (req, res, next) => {
     const answer = {
@@ -32,7 +31,6 @@ exports.getOneAnswer = (req, res, next) => {
 };
 
 // Suppression d'une réponse 
-
 
 exports.deleteAnswer = (req, res, next) => {
   Answer.findOne({ where: { id: req.params.id } }) 

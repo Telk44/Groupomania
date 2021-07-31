@@ -37,7 +37,7 @@ Ouvrir le dossier Frontend dans le terminal de votre éditeur puis exécuter la 
 
 puis
 
-    npm start
+    npm run serve
 
 si le navigateur ne s'ouvre pas automatiquement allez à :
 

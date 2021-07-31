@@ -113,28 +113,22 @@ export default {
 
 <style lang="css">
 
-
-.blocactions {
-    
-}
 .deleteAnswer{
     text-align: end;
 }
 .blocanswers {
-  max-width: 80%;
-  margin:10px 0px;
-  padding:10px;
-  border-radius: 8px; 
-  background-color: #f4f0f0;
-  word-wrap:break-word;
-  font-size: 14px;
- 
+    max-width: 80%;
+    margin:10px 0px;
+    padding:10px;
+    border-radius: 8px; 
+    background-color: #f4f0f0;
+    word-wrap:break-word;
+    font-size: 14px;
 }
-
 .blocaddanswer textarea:focus {
-  border-color: white;
-  box-shadow: 0px 0px 6px grey;
-}
+    border-color: white;
+    box-shadow: 0px 0px 6px grey;
+    }
 .btnpost{
     width:40px;
     border-radius: 8px;

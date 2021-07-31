@@ -32,8 +32,6 @@ export default {
 .header{
     width:80%;
     display:flex;
-   
-    
     margin: 30px;
     padding: 15px;
 }
@@ -43,19 +41,10 @@ export default {
     flex-direction: row;
     justify-content: space-around;
     padding-top: 10px;
-    
-    /* box-shadow: 0px 0px 15px 8px rgba(19, 18, 18, 0.027);
-    border: 1px solid rgb(244, 235, 235);
-    border-radius: 6px; */
-    
-    
-    
 }
 #navbar i {
     font-size: 1.2em;
     color:black;
-    
-    
 }
  @media screen and (max-width: 768px) {
 	.header {
@@ -65,8 +54,7 @@ export default {
     }
     .headerImg img {
     width: 87%;
-}
-    
+    }
 }
 
 

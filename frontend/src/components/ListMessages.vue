@@ -1,5 +1,4 @@
 <template>
-
   <div>
      <!-- Liste des messages -->   
       <div v-for="message in messages" :key="message.id" class="bloclist">
@@ -7,7 +6,6 @@
             <i class="fas fa-user-circle">  </i>
             <span class="textauthor">{{ message.user.firstname }} {{ message.user.lastname }}</span>
             <div class="textdate"> {{ message.createdAt | moment( " DD.MM.YY à HH:mm") }}</div>
-             
           </div>
           <div class="blocmessage">
               <p> {{ message.content }} </p>
@@ -89,7 +87,6 @@ export default {
 }
 .textdate{
   font-size: 10px;
-
 }
 .bloclist {
   width: 70%;
@@ -105,17 +102,14 @@ export default {
   font-size: 1.5em;
   margin: 0 auto;
 }
-
 .blocauthor p {
   font-size: 1em;
-  
 }
 .blocmessage {
   width: 100%;
   margin: 0 auto;
   border-radius: 2px; 
   border-bottom: 1px solid black;
-  /* border: 1px solid black; */
   text-align: left;
   overflow: hidden;
 }
@@ -124,5 +118,4 @@ export default {
     color: #d44c5c;
     font-size: 0.6em;
 }
-
 </style>

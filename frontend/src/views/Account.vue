@@ -1,7 +1,6 @@
 <template>
      <section>
          <Navbar></Navbar>
-
             <div class="blocsignup">
                 <p>Gestion du compte de {{ userAccount.firstname }} {{ userAccount.lastname }}</p>
                 <p>Vous êtes inscrit depuis le <span>{{ userAccount.createdAt | moment("DD.MM.YY") }}</span> <!-- en tant que {{ userAccount.jobtitle }} -->.</p>
@@ -48,7 +47,7 @@ export default {
                 this.userAccount.firstname = data.firstname;
                 this.userAccount.lastname = data.lastname;
                 this.userAccount.createdAt = data.createdAt;
-                this.userAccount.jobtitle = data.jobtitle;
+                /* this.userAccount.jobtitle = data.jobtitle; */
             })
             .catch(error => console.log(error))
     },

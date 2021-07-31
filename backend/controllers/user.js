@@ -1,15 +1,12 @@
-const bcrypt = require('bcrypt'); // Hashage de passwords //
-const jwt = require('jsonwebtoken'); // Sécurisation de la connection grâce à des tokens uniques //
-const { User } = require('../models/index'); // Importation du modèle User //
+const bcrypt = require('bcrypt'); 
+const jwt = require('jsonwebtoken'); 
+const { User } = require('../models/index'); 
 require('dotenv').config();
 
-
-// Regex
 const regexEmail = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9._-]+.[a-zA-Z.]{2,15}/;
 const regexPassword = /^(?=^.{8,}$)((?=.*\d)|(?=.*\W+))(?![.\n])(?=.*[A-Z])(?=.*[a-z]).*$/;
 
-// Exportation des fonctions //
-// Fonction signup, sauvegarde d'un nouvel utilisateur //
+//inscription nouvel utilisateur
 exports.signup = (req, res, next) => {    
     if (req.body.email == null || req.body.password == null || req.body.lastname == null || req.body.firstname == null) {
         return res.status(400).json({ 'error': 'Données incomplètes' });
@@ -23,10 +20,10 @@ exports.signup = (req, res, next) => {
         User.findOne({
         attributes: ['email'],
         where: { email: req.body.email }
-    }) //Vérification si un utilisateur corresponde déjà à l'email de la DB//
+    }) 
         .then((user) => {
             if (!user) {
-    bcrypt.hash(req.body.password, 10)  //Fonction pour hasher un mot de passe fonction async//
+    bcrypt.hash(req.body.password, 10)  
         .then(hash => { 
             console.log(hash)           
              const signUser = User.create ({
@@ -48,7 +45,7 @@ exports.signup = (req, res, next) => {
         .catch(error => res.status(500).json({ 'error': 'Utilisateur déjà existant' }));
 };
 
-// Fonction login //
+// Fonction login 
 exports.login = (req, res, next) => {
     User.findOne({ where : {email: req.body.email }}) 
         .then(user => {
@@ -72,7 +69,6 @@ exports.login = (req, res, next) => {
                 })
                 .catch(error => res.status(500).json({ error }));
         })
-
         .catch(error => res.status(500).json({ error }));
 };
 
@@ -109,6 +105,7 @@ exports.modifyAccount = (req, res, next) => {
         .catch(error => res.status(500).json({ error }));
 };
 
+//récupération tous les comptes
 exports.getAllAccounts = (req, res, next) => {
     User.findAll()
         .then((users) => res.status(200).json(users))

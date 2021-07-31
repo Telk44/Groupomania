@@ -8,13 +8,11 @@
                 <!-- <label for="title">Titre du message :</label> -->
                 <!-- <input type="text" id="title" name="title" placeholder="Titre" class="form-control" required v-model="inputMessage.title"/> -->
                 <input type="text" id="content" name="content" rows="10" class="form-control" required v-model="inputMessage.content" placeholder="Quoi de neuf ?"/>
-            
              <!--  <label for="image" class="new-post_form-label">Image</label>
                 <input type="file"  placeholder="upload image"/> -->
             </form>              
              <button v-on:click="sendMessage" >Publier</button> 
           </div> 
-            
      </section> 
 </template>
 
@@ -47,7 +45,6 @@ export default {
 
       /*   onFileSelected(event) {
         this.selectedFile = event.target.files[0];
-         this.newImage = URL.createObjectURL(this.file)
         },
  */
         sendMessage() {
@@ -72,7 +69,7 @@ export default {
                     console.log(res)
                     if (res.ok) {
                         window.location.reload();
-                        this.inputMessage = {} // Retour à 0 des inputs //
+                        this.inputMessage = {} // Retour à 0 des inputs 
                     } else {
                        /*  alert("Message bien reçu "); */
                     }

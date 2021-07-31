@@ -95,7 +95,6 @@ form {
 button {
   width: 120px;
   height: 40px;
-  /* box-shadow: inset 0px 0px 0px 4px white; */
   border: 1px solid black(255, 255, 255);
   border-radius: 1px;
   padding: 10px;
@@ -104,7 +103,6 @@ button {
   
 }
 button:hover {
-  /* transform: scale(1.15); */
 	opacity: .85;
 	-webkit-transition: .3s ease-in;
 	transition: .3s ease-out;
@@ -115,8 +113,6 @@ label {
   text-align: right; 
   font-size: 1em;
   margin: auto;
-  /* color: black; */
-  
 }
 input, textarea {
   width: 70%;
@@ -124,7 +120,6 @@ input, textarea {
   box-sizing: content-box;  
   outline: none;
   border:none;
-  /* box-shadow: inset 0px 0px 0px 4px white; */
   box-shadow: 0px 0px 15px 8px rgba(19, 18, 18, 0.027);
   border-radius: 5px;
   padding: 10px;
@@ -142,16 +137,12 @@ input:focus, textarea:focus {
   margin: auto;
  }
 
- 
 .blocsignup {
   color: white;
   margin: auto;
   width: 40%; 
   box-shadow: 0px 0px 15px 8px rgba(19, 18, 18, 0.027);
-  
-	/* opacity: 0.95; */
 	padding-top: 20px;
-
   border-radius: 10px;
   text-align: center;
   margin-top: 50px;
@@ -186,14 +177,6 @@ input:focus, textarea:focus {
   align-content: center;
   font-size: 0.7em;
 }
-/*  .form-group {
-  display: flex;
-  flex-direction: column;
-   
- } */
-/* label, input, textarea {
-  width: 75%;
-  text-align: center;
-  } */
+
 }
 </style>

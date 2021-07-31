@@ -3,10 +3,10 @@ const bodyParser = require('body-parser');
 const path = require('path');
 const helmet = require('helmet');
 const db = require('./models');
-
 const userRoutes = require("./routes/user"); 
 const messageRoutes = require("./routes/message"); 
 const answerRoutes = require("./routes/answer"); 
+
 db.sequelize
     .authenticate()
     .then(() => {
@@ -18,8 +18,6 @@ db.sequelize
     .catch(error => {
         console.log(error);
     });
-
-
 
 const app = express();
 
