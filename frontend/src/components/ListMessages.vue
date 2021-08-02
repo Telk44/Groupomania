@@ -11,7 +11,8 @@
               <p> {{ message.content }} </p>
           </div>  
           <a class="blocactions">
-            <i class="fas fa-trash-alt" v-if="message.userId == userId || isAdmin == true" @click="deleteMessage(message.id)" title="supprimer"> </i>
+            <i class="fas fa-trash-alt" v-if="message.userId == userId || isAdmin == true" 
+            @click="deleteMessage(message.id)" title="supprimer"> </i>
           </a>
         <Answers :messageId="message.id" :messageUserId="message.userId" />
       </div>
@@ -26,12 +27,11 @@ export default {
     components: {
         Answers
     },
-
     data() {
         return {
             firstname: "",
             lastname: "",
-            jobtitle: "",
+            /* jobtitle: "", */
             userId: "",
             isAdmin: "",
             messages: []
@@ -102,9 +102,9 @@ export default {
   font-size: 1.5em;
   margin: 0 auto;
 }
-.blocauthor p {
+/* .blocauthor p {
   font-size: 1em;
-}
+} */
 .blocmessage {
   width: 100%;
   margin: 0 auto;
@@ -117,5 +117,9 @@ export default {
 .fa-trash-alt{
     color: #d44c5c;
     font-size: 0.6em;
+    padding:10px;
+}
+.fa-trash-alt:hover {
+    color:rgb(30, 41, 70);
 }
 </style>

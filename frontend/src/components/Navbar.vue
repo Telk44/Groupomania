@@ -43,9 +43,14 @@ export default {
     padding-top: 10px;
 }
 #navbar i {
-    font-size: 1.2em;
+    font-size: 1.4em;
     color:black;
+    padding:10px;
 }
+#navbar i:hover {
+        color:#d44c5c;
+}
+
  @media screen and (max-width: 768px) {
 	.header {
        flex-wrap: wrap;  

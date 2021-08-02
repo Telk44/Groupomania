@@ -1,17 +1,16 @@
 <template>
-     
           <div class="blocsignup">  
             <img src="../assets/icon.svg"  alt="Logo Groupomania Connect" width="30%" />        
             <h3>Formulaire d'inscription</h3>
             <form v-on:submit.prevent="signup" id="form-signup" >
               <div class="form-group">
                 <!-- <label for="lastname"> Nom </label> -->
-                <input type="text" id="lastname" name="lastname" class="form-control"  placeholder="Nom" required 
+                <input type="text" id="lastname" name="lastname" title="Votre nom" class="form-control"  placeholder="Nom" required 
                 pattern="^[^&amp;<>@&quot;()'!_$*€£`+=\/;?#]+$" v-model="inputSignup.lastname"/>
               </div>
               <div class="form-group">
                 <!-- <label for="firstname">Prénom </label> -->
-                <input type="text" id="firstname" name="firstname"  placeholder="Prénom" class="form-control" required 
+                <input type="text" id="firstname" name="firstname"  title="Votre prénom" placeholder="Prénom" class="form-control" required 
                 pattern="^[^&amp;<>@&quot;()'!_$*€£`+=\/;?#]+$" v-model="inputSignup.firstname"/>
               </div>
              <!--  <div class="form-group">
@@ -21,16 +20,16 @@
               </div>  -->
               <div class="form-group">
                 <!-- <label for="email">E-mail </label> -->
-                <input type="email" id="email" name="email" class="form-control"  placeholder="Email" required 
+                <input type="email" id="email" name="email" title="Votre email" class="form-control"  placeholder="Email" required 
                 pattern="[a-zA-Z0-9._-]+@[a-zA-Z0-9._-]+.[a-zA-Z.]{2,15}" v-model="inputSignup.email"/>
               </div>
               <div class="form-group">
                 <!-- <label for="password">Mot de passe </label> -->
-                <input type="password" id="password" name="password" class="form-control"  placeholder="Mot de passe" required
+                <input type="password" id="password" name="password" title="Votre mot de passe" class="form-control"  placeholder="Mot de passe" required
                 pattern="(?=^.{8,}$)((?=.*\d)|(?=.*\W+))(?![.\n])(?=.*[A-Z])(?=.*[a-z]).*$" v-model="inputSignup.password"/>
               </div>  
               <p> Minimum 8 caractères dont 1 Majuscule, 1 minuscule et un chiffre</p>
-              <button>Connect</button>                                       
+              <button title="Inscription">Inscription</button>                                       
             </form> 
              
               <nav class="navlogsign"><p>Vous avez déjà un compte ? <router-link to="/">Connectez-vous</router-link></p></nav> 
@@ -104,16 +103,17 @@ button {
 }
 button:hover {
 	opacity: .85;
+  background-color: #d44c5c;
 	-webkit-transition: .3s ease-in;
 	transition: .3s ease-out;
 }
-label {
+/* label {
   display: block;
   width: 25%; 
   text-align: right; 
   font-size: 1em;
   margin: auto;
-}
+} */
 input, textarea {
   width: 70%;
   height: 2em;
@@ -126,10 +126,12 @@ input, textarea {
   margin: auto;
 }
 
-input:focus, textarea:focus {
+input:hover, textarea:hover {
   border-color: white;
   box-shadow: 0px 0px 5px #6f6d6e;
+  
 }
+
 .form-group {
   display: flex;
   justify-content: flex-start;

@@ -14,11 +14,10 @@ module.exports = (sequelize, DataTypes) => {
     //Associations can be define here//
     User.hasMany(models.Message,{
       foreignKey: 'userId',
-      as: 'messages', //Sequelize defaults to using the pluralized model name//
+      as: 'messages', 
       
     }); 
   };
-  
   
   return User;
 };

@@ -19,7 +19,6 @@ Message.associate = function (models) {
   Message.hasMany(models.Answer, {
     foreignKey: 'messageId',
     as: 'answers', 
-    
   }); 
 }
   return Message;

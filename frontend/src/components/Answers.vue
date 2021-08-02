@@ -16,8 +16,8 @@
 
         <!-- Poster un commentaire  -->    
         <div class="addAnswer">
-           <div> <textarea type="text"  name="content" class="form-control" v-model="content" placeholder="Ecrivez un commentaire" required></textarea></div>
-           <button class ="btnpost" v-on:click="createAnswer()">Post</button>        
+           <div> <textarea type="text" title="Ecrivez un commentaire" name="content" class="form-control" v-model="content" placeholder="Ecrivez un commentaire" required></textarea></div>
+           <button class ="btnpost" title="Poster" v-on:click="createAnswer()">Post</button>        
         </div>
     </div>
 </template>

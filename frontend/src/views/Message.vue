@@ -7,11 +7,11 @@
               
                 <!-- <label for="title">Titre du message :</label> -->
                 <!-- <input type="text" id="title" name="title" placeholder="Titre" class="form-control" required v-model="inputMessage.title"/> -->
-                <input type="text" id="content" name="content" rows="10" class="form-control" required v-model="inputMessage.content" placeholder="Quoi de neuf ?"/>
+                <input type="text" title="Quoi de neuf?" id="content" name="content" rows="10" class="form-control" required v-model="inputMessage.content" placeholder="Quoi de neuf ?"/>
              <!--  <label for="image" class="new-post_form-label">Image</label>
                 <input type="file"  placeholder="upload image"/> -->
             </form>              
-             <button v-on:click="sendMessage" >Publier</button> 
+             <button title="Publier" v-on:click="sendMessage" >Publier</button> 
           </div> 
      </section> 
 </template>
@@ -28,19 +28,17 @@ export default {
     data() {
         return {
             inputMessage: {
-                title: "",
+                /* title: "", */
                 content: "",
                 /* url_image: null */
             },
             userId: ""
         }
     },
-
     mounted() {
         this.userId = JSON.parse(localStorage.getItem("userId"));
         console.log(this.userId)
     },
-
     methods: {
 
       /*   onFileSelected(event) {
@@ -49,7 +47,7 @@ export default {
  */
         sendMessage() {
             let deliverMessage = {
-                "title": this.inputMessage.title,
+                /* "title": this.inputMessage.title, */
                 "content": this.inputMessage.content,
                 "userId": this.userId
             }

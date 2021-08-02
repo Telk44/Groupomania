@@ -7,13 +7,13 @@
             <form v-on:submit.prevent="login" id="form-login" >
               <div class="form-group">
                 <!-- <label for="email">E-mail :</label> -->
-                <input type="email" id="email" name="email" class="form-control"  placeholder="Email" required v-model="inputLogin.email"/>
+                <input type="email" id="email" title="Votre email" name="email" class="form-control"  placeholder="Email" required v-model="inputLogin.email"/>
               </div>
               <div class="form-group">
                 <!-- <label for="password">Mot de passe :</label> -->
-                <input type="password" id="password" name="password" class="form-control"  placeholder="Mot de passe" required v-model="inputLogin.password"/>
+                <input type="password" id="password" title="Votre mot de passe" name="password" class="form-control"  placeholder="Mot de passe" required v-model="inputLogin.password"/>
               </div>   
-              <button type="submit">Connect</button>                                     
+              <button type="submit" title="Connexion">Connexion</button>                                     
             </form> 
               
              <nav class="navlogsign"><p>Pas encore inscrit ? <router-link to="/signup">Rejoignez-nous !</router-link></p></nav>
